@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Union, Optional
 from pydantic import BaseModel
 
 class Token(BaseModel):
@@ -20,21 +20,16 @@ class UserBase(BaseModel):
 class RegisterForm(UserBase):
     password: str
 
-class ARpostForm(BaseModel):
-    name: str
-    contents: str
-    x_value: float
-    y_value: float
-    z_value: float
-    #datetime
-    #username
-
 class ARpostCoordi(BaseModel):
-    x_value: float
-    y_value: float
+    x_value: str
+    y_value: str
 
 class ARpostId(BaseModel):
     arpost_id: int
+
+class ARpostEmotion(BaseModel):
+    arpost_id: int
+    emotion: str
 
 class ARpostComment(BaseModel):
     arpost_id: int
@@ -44,3 +39,7 @@ class ARpostCommentEdit(BaseModel):
     arpost_id: int
     comment_id: int
     comment: str
+
+class ARpostCommentDelete(BaseModel):
+    arpost_id: int
+    comment_id: int
