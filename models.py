@@ -51,4 +51,51 @@ class ARpost_comment(Base):
     arpost_id  = Column(Integer, ForeignKey('arposts.arpost_id'))
     comment = Column(String(512))
     username = Column(String(512))
+    updatetime = Column(DateTime)
 
+class generalpost(Base):
+    __tablename__ = "generalposts"
+
+    generalpost_id = Column(Integer, primary_key=True, index=True)
+    generalpost_author = Column(String(32), index=True)
+    generalpost_name = Column(String(512))
+    generalpost_contents = Column(String(8192))
+    generalpost_updatetime = Column(DateTime)
+    generalpost_image_filename1 = Column(String(256))
+    generalpost_image_filename2 = Column(String(256))
+    generalpost_image_filename3 = Column(String(256))
+    generalpost_image_filename4 = Column(String(256))
+    generalpost_image_filename5 = Column(String(256))
+    generalpost_image_filename6 = Column(String(256))
+    generalpost_image_filename7 = Column(String(256))
+    generalpost_image_filename8 = Column(String(256))
+    generalpost_image_filename9 = Column(String(256))
+    generalpost_image_filename10 = Column(String(256))
+    generalpost_tag1 = Column(String(128))
+    generalpost_tag2 = Column(String(128))
+    generalpost_tag3 = Column(String(128))
+    generalpost_tag4 = Column(String(128))
+    generalpost_tag5 = Column(String(128))
+    generalpost_tag6 = Column(String(128))
+    generalpost_tag7 = Column(String(128))
+    generalpost_tag8 = Column(String(128))
+    generalpost_tag9 = Column(String(128))
+    generalpost_tag10 = Column(String(128))
+
+class generalpost_emotion(Base):
+    __tablename__ = "generalpost_emotion"
+
+    emotion_id = Column(Integer, primary_key=True, index=True)
+    generalpost_id  = Column(Integer, ForeignKey('generalposts.generalpost_id'))
+    emotion = Column(String(128))
+    username = Column(String(512))
+
+
+class generalpost_comment(Base):
+    __tablename__ = "generalpost_comment"
+
+    comment_id = Column(Integer, primary_key=True, index=True)
+    generalpost_id  = Column(Integer, ForeignKey('generalposts.generalpost_id'))
+    comment = Column(String(512))
+    username = Column(String(512))
+    updatetime = Column(DateTime)

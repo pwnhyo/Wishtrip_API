@@ -9,8 +9,11 @@ class TokenData(BaseModel):
     username: Union[str, None] = None
 
 class LoginForm(BaseModel):
-    username: str
+    email: str
     password: str
+
+class EmailForm(BaseModel):
+    email: str
 
 class UserBase(BaseModel):
     username: str
@@ -43,3 +46,30 @@ class ARpostCommentEdit(BaseModel):
 class ARpostCommentDelete(BaseModel):
     arpost_id: int
     comment_id: int
+
+class TagForm(BaseModel):
+    tag: str
+
+class generalpostId(BaseModel):
+    generalpost_id: int
+
+class generalpostEmotion(BaseModel):
+    generalpost_id: int
+    emotion: str
+
+class generalpostComment(BaseModel):
+    generalpost_id: int
+    comment: str
+
+class generalpostCommentEdit(BaseModel):
+    generalpost_id: int
+    comment_id: int
+    comment: str
+
+class generalpostCommentDelete(BaseModel):
+    generalpost_id: int
+    comment_id: int
+
+class scrapForm(BaseModel):
+    post_id: int
+    isScrap: bool
